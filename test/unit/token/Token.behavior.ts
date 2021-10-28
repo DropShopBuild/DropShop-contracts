@@ -1,7 +1,5 @@
 // We import Chai to use its assertion functions here.
 import { expect } from "chai";
-// We import the hardhat environment field we are planning to use
-import { ethers, deployments, getNamedAccounts, getUnnamedAccounts } from "hardhat";
 
 export function shouldBehaveLikeTokenDeploy(): void {
   // `it` is another Mocha function. This is the one you use to define your

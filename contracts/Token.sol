@@ -2,6 +2,7 @@
 // The line above is recommended and let you define the license of your contract
 // Solidity files have to start with this pragma.
 // It will be used by the Solidity compiler to validate its version.
+/* solhint-disable */
 pragma solidity ^0.7.0;
 
 import "hardhat/console.sol";

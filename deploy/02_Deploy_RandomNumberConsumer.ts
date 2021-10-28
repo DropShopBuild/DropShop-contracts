@@ -1,5 +1,3 @@
-/* eslint-disable node/no-missing-import */
-// eslint-disable-next-line node/no-unpublished-import
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { DeployFunction } from "hardhat-deploy/types";
 import { networkConfig } from "../helper-hardhat-config";

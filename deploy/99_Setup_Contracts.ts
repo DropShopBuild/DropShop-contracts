@@ -1,14 +1,11 @@
-/* eslint-disable node/no-unpublished-import */
 import { HardhatRuntimeEnvironment } from "hardhat/types";
-// eslint-disable-next-line node/no-missing-import
 import { DeployFunction } from "hardhat-deploy/types";
 import { Deployment } from "hardhat-deploy/dist/types";
 import { networkConfig, autoFundCheck, autoFundCheckParams } from "../helper-hardhat-config";
 
 const deploySetupContracts: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
-  const { deployments, getNamedAccounts, getChainId } = hre;
-  const { deploy, log, get } = deployments;
-  const { deployer } = await getNamedAccounts();
+  const { deployments, getChainId } = hre;
+  const { log, get } = deployments;
   const chainId = await getChainId();
   let linkTokenAddress: string, linkToken: Deployment;
   let additionalMessage = "";
@@ -21,7 +18,7 @@ const deploySetupContracts: DeployFunction = async function (hre: HardhatRuntime
     linkTokenAddress = linkToken.address;
     additionalMessage = " --linkaddress " + linkTokenAddress;
   } else {
-    linkTokenAddress = networkConfig[chainId].linkToken!;
+    linkTokenAddress = networkConfig[chainId]?.linkToken ?? "";
   }
 
   const RandomNumberConsumer: Deployment = await deployments.get("RandomNumberConsumer");

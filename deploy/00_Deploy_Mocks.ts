@@ -1,6 +1,4 @@
-/* eslint-disable node/no-unpublished-import */
 import { HardhatRuntimeEnvironment } from "hardhat/types";
-// eslint-disable-next-line node/no-missing-import
 import { DeployFunction } from "hardhat-deploy/types";
 
 const deployMocks: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {

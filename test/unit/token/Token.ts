@@ -6,7 +6,6 @@ import { ethers, deployments, getNamedAccounts, getUnnamedAccounts } from "hardh
 
 // we import our behavior tests
 import { shouldBehaveLikeTokenDeploy, shouldBehaveLikeTokenTransaction } from "./Token.behavior";
-import { Token } from "../../../types";
 
 // we create a setup function that can be called by every test and setup variable for easy to read tests
 async function setup() {

@@ -1,15 +1,20 @@
 import "@nomiclabs/hardhat-waffle";
+import "@nomiclabs/hardhat-ethers";
 import "@typechain/hardhat";
+import "@appliedblockchain/chainlink-plugins-fund-link";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
+import "hardhat-deploy";
+import "hardhat-deploy-ethers";
 
 import "./tasks/accounts";
-import "./tasks/deploy";
+import "./tasks/balance";
+import "./tasks/block-number";
 
 import { resolve } from "path";
 
 import { config as dotenvConfig } from "dotenv";
-import { HardhatUserConfig } from "hardhat/config";
+import { HardhatUserConfig, task } from "hardhat/config";
 import { NetworkUserConfig } from "hardhat/types";
 
 dotenvConfig({ path: resolve(__dirname, "./.env") });
@@ -74,7 +79,20 @@ const config: HardhatUserConfig = {
     tests: "./test",
   },
   solidity: {
-    version: "0.8.9",
+    compilers: [
+      {
+        version: "0.8.7",
+      },
+      {
+        version: "0.6.6",
+      },
+      {
+        version: "0.4.24",
+      },
+      {
+        version: "0.7.0",
+      },
+    ],
     settings: {
       metadata: {
         // Not including the metadata hash
@@ -92,6 +110,21 @@ const config: HardhatUserConfig = {
   typechain: {
     outDir: "types",
     target: "ethers-v5",
+  },
+  namedAccounts: {
+    deployer: {
+      default: 1, // here this will by default take the first account as deployer
+      1: 1, // similarly on mainnet it will take the first account as deployer. Note though that depending on how hardhat network are configured, the account 0 on one network can be different than on another
+    },
+    feeCollector: {
+      default: 1,
+    },
+    account0: 0,
+    account1: 1,
+    account2: 2,
+  },
+  mocha: {
+    timeout: 100000,
   },
 };
 

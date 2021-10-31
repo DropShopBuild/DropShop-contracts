@@ -5,8 +5,6 @@ import "@appliedblockchain/chainlink-plugins-fund-link";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
 import "hardhat-deploy";
-import "hardhat-deploy-ethers";
-
 import "./tasks/accounts";
 import "./tasks/balance";
 import "./tasks/block-number";
@@ -92,6 +90,9 @@ const config: HardhatUserConfig = {
       {
         version: "0.7.0",
       },
+      {
+        version: "0.8.9",
+      },
     ],
     settings: {
       metadata: {
@@ -119,7 +120,7 @@ const config: HardhatUserConfig = {
     feeCollector: {
       default: 1,
     },
-    account0: 0,
+    sponsor: 0,
     account1: 1,
     account2: 2,
   },

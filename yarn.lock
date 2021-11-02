@@ -1740,6 +1740,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nomiclabs/hardhat-web3@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@nomiclabs/hardhat-web3@npm:2.0.0"
+  dependencies:
+    "@types/bignumber.js": ^5.0.0
+  peerDependencies:
+    hardhat: ^2.0.0
+    web3: ^1.0.0-beta.36
+  checksum: b777179ba395ec841848dc28bb7c583dc7a3dbf369a1f00d691157594d7cf74fe8ee7ae31ba1fb6424e2c39080ec386bda77cb56ad2517a0d1e55059178e1075
+  languageName: node
+  linkType: hard
+
 "@nomiclabs/truffle-contract@npm:^4.2.23":
   version: 4.2.24
   resolution: "@nomiclabs/truffle-contract@npm:4.2.24"
@@ -1783,6 +1795,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@openzeppelin/contract-loader@npm:^0.6.2":
+  version: 0.6.3
+  resolution: "@openzeppelin/contract-loader@npm:0.6.3"
+  dependencies:
+    find-up: ^4.1.0
+    fs-extra: ^8.1.0
+  checksum: ecfb075e3cc8c3e64087eb27ebe23c6f3bca7253fac1e7b057fac59ef6836dc59e673a295a70955424fdbe36ff5d3e82bd7a984b92224605f0313d3429358e7e
+  languageName: node
+  linkType: hard
+
 "@openzeppelin/contracts@npm:^3.3.0, @openzeppelin/contracts@npm:^3.4.0":
   version: 3.4.2
   resolution: "@openzeppelin/contracts@npm:3.4.2"
@@ -1794,6 +1816,24 @@ __metadata:
   version: 4.3.2
   resolution: "@openzeppelin/contracts@npm:4.3.2"
   checksum: 9032453eef3e10b6453b667c7edd3381292665083b855ca8a8b5f64b473e768eacb53516865fb3ce1e493deadbb977069e483cce5650c42807a742ab59a18695
+  languageName: node
+  linkType: hard
+
+"@openzeppelin/test-helpers@npm:^0.5.15":
+  version: 0.5.15
+  resolution: "@openzeppelin/test-helpers@npm:0.5.15"
+  dependencies:
+    "@openzeppelin/contract-loader": ^0.6.2
+    "@truffle/contract": ^4.0.35
+    ansi-colors: ^3.2.3
+    chai: ^4.2.0
+    chai-bn: ^0.2.1
+    ethjs-abi: ^0.2.1
+    lodash.flatten: ^4.4.0
+    semver: ^5.6.0
+    web3: ^1.2.5
+    web3-utils: ^1.2.5
+  checksum: 7b204f2ad360131a00c967dfad1b0b7ffaa81b98ab2239db335012bc3d14ca723f9a160436eff1ac4564309e96897ed2a328318227d26ccde7c9e1ae4eeaeaf3
   languageName: node
   linkType: hard
 
@@ -1817,7 +1857,9 @@ __metadata:
     "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers@latest"
     "@nomiclabs/hardhat-ethers:": "npm:hardhat-deploy-ethers@^0.3.0-beta.10"
     "@nomiclabs/hardhat-waffle": ^2.0.1
+    "@nomiclabs/hardhat-web3": ^2.0.0
     "@openzeppelin/contracts": ^4.3.2
+    "@openzeppelin/test-helpers": ^0.5.15
     "@typechain/ethers-v5": ^7.2.0
     "@typechain/hardhat": ^2.3.1
     "@types/chai": ^4.2.22
@@ -1827,6 +1869,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.2.0
     "@typescript-eslint/parser": ^5.2.0
     chai: ^4.3.4
+    chai-bignumber: ^3.0.0
     commitizen: ^4.2.4
     cross-env: ^7.0.3
     cz-conventional-changelog: ^3.3.0
@@ -2139,7 +2182,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@truffle/contract@npm:^4.1.8, @truffle/contract@npm:^4.3.8":
+"@truffle/contract@npm:^4.0.35, @truffle/contract@npm:^4.1.8, @truffle/contract@npm:^4.3.8":
   version: 4.3.38
   resolution: "@truffle/contract@npm:4.3.38"
   dependencies:
@@ -2341,6 +2384,15 @@ __metadata:
   version: 5.0.2
   resolution: "@types/abstract-leveldown@npm:5.0.2"
   checksum: 1fd89d622b6bd1edaa7a469e2bfbf615b7f9d2dca1e55d10d3d89cbb0db7e8a8bfca555413d60c8f4dfbbe5e4ec49058c5a02559f61a22b22fc0015bda2f6d00
+  languageName: node
+  linkType: hard
+
+"@types/bignumber.js@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@types/bignumber.js@npm:5.0.0"
+  dependencies:
+    bignumber.js: "*"
+  checksum: f31a196da8b93d35c30879f4cc449e1099057ef27514554d2a5c80e2b1ba8cb8925919a2d92700d723ea959cb8b9d66f2917eea4f98a36f9f5d9e24c10c9c36f
   languageName: node
   linkType: hard
 
@@ -3092,6 +3144,13 @@ __metadata:
   version: 4.1.1
   resolution: "ansi-colors@npm:4.1.1"
   checksum: 138d04a51076cb085da0a7e2d000c5c0bb09f6e772ed5c65c53cb118d37f6c5f1637506d7155fb5f330f0abcf6f12fa2e489ac3f8cdab9da393bf1bb4f9a32b0
+  languageName: node
+  linkType: hard
+
+"ansi-colors@npm:^3.2.3":
+  version: 3.2.4
+  resolution: "ansi-colors@npm:3.2.4"
+  checksum: 026c51880e9f8eb59b112669a87dbea4469939ff94b131606303bbd697438a6691b16b9db3027aa9bf132a244214e83ab1508b998496a34d2aea5b437ac9e62d
   languageName: node
   linkType: hard
 
@@ -4228,17 +4287,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bignumber.js@npm:*, bignumber.js@npm:^9.0.0, bignumber.js@npm:^9.0.1, bignumber.js@npm:~9.0.0":
+  version: 9.0.1
+  resolution: "bignumber.js@npm:9.0.1"
+  checksum: 6e72f6069d9db32fc8d27561164de9f811b15f9144be61f323d8b36150a239eea50c92e20ba38af2ba5e717af10b8ef12db8f9948fe2ff02bf17ede5239d15d3
+  languageName: node
+  linkType: hard
+
 "bignumber.js@npm:7.2.1, bignumber.js@npm:^7.2.1":
   version: 7.2.1
   resolution: "bignumber.js@npm:7.2.1"
   checksum: c4eab705fb3293170f248f13f38a06d24591710864632f78b1637d361feaf07ce782cc6ea23c6984c8ddb030ad1883b813a251448527d55650b403e6f2cc7e67
-  languageName: node
-  linkType: hard
-
-"bignumber.js@npm:^9.0.0, bignumber.js@npm:^9.0.1, bignumber.js@npm:~9.0.0":
-  version: 9.0.1
-  resolution: "bignumber.js@npm:9.0.1"
-  checksum: 6e72f6069d9db32fc8d27561164de9f811b15f9144be61f323d8b36150a239eea50c92e20ba38af2ba5e717af10b8ef12db8f9948fe2ff02bf17ede5239d15d3
   languageName: node
   linkType: hard
 
@@ -4894,6 +4953,16 @@ __metadata:
   version: 3.0.0
   resolution: "chai-bignumber@npm:3.0.0"
   checksum: 1a671beb93cf9775abf1a0640c6ec938b2952a89793b2c9dab9a5fa24fb7df5520cc9a20db84446f622ae5d28029e2bac140601786e0d9e821b4c37e22e9d433
+  languageName: node
+  linkType: hard
+
+"chai-bn@npm:^0.2.1":
+  version: 0.2.2
+  resolution: "chai-bn@npm:0.2.2"
+  peerDependencies:
+    bn.js: ^4.11.0
+    chai: ^4.0.0
+  checksum: e291238ee6f701b98b20b635f0b783373f15cc7bee48f8647fbfda35a00964a358086941373a55cf3f2b69768ff7a2ef0bf6e7d8713ca0b3617f9270a35cfcf4
   languageName: node
   linkType: hard
 
@@ -7714,6 +7783,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ethjs-abi@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "ethjs-abi@npm:0.2.1"
+  dependencies:
+    bn.js: 4.11.6
+    js-sha3: 0.5.5
+    number-to-bn: 1.7.0
+  checksum: f58ad78f08ab0eda43b799075b245e39178f26045b0b21600f1d2544b04f6ba197734b43825112b5fd63acd5cb9ca4ea4df7e72d7ec58457f907e88f5ad52b13
+  languageName: node
+  linkType: hard
+
 "ethjs-unit@npm:0.1.6":
   version: 0.1.6
   resolution: "ethjs-unit@npm:0.1.6"
@@ -10499,6 +10579,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"js-sha3@npm:0.5.5":
+  version: 0.5.5
+  resolution: "js-sha3@npm:0.5.5"
+  checksum: 19900933f7b8cf0b91a8aba3ecbc2e27a336d0e7dc0bb30db938a56a399b355f68a98e086d2523db03c9f6abea5de42d40ce7237c9d3412f5eb44a5d409033f0
+  languageName: node
+  linkType: hard
+
 "js-sha3@npm:0.5.7, js-sha3@npm:^0.5.7":
   version: 0.5.7
   resolution: "js-sha3@npm:0.5.7"
@@ -11332,6 +11419,13 @@ __metadata:
   version: 4.1.2
   resolution: "lodash.escaperegexp@npm:4.1.2"
   checksum: 6d99452b1cfd6073175a9b741a9b09ece159eac463f86f02ea3bee2e2092923fce812c8d2bf446309cc52d1d61bf9af51c8118b0d7421388e6cead7bd3798f0f
+  languageName: node
+  linkType: hard
+
+"lodash.flatten@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "lodash.flatten@npm:4.4.0"
+  checksum: 0ac34a393d4b795d4b7421153d27c13ae67e08786c9cbb60ff5b732210d46f833598eee3fb3844bb10070e8488efe390ea53bb567377e0cb47e9e630bf0811cb
   languageName: node
   linkType: hard
 
@@ -18350,7 +18444,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"web3-utils@npm:1.6.0, web3-utils@npm:^1.0.0-beta.31, web3-utils@npm:^1.3.0":
+"web3-utils@npm:1.6.0, web3-utils@npm:^1.0.0-beta.31, web3-utils@npm:^1.2.5, web3-utils@npm:^1.3.0":
   version: 1.6.0
   resolution: "web3-utils@npm:1.6.0"
   dependencies:
@@ -18410,7 +18504,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"web3@npm:^1.0.0-beta.34":
+"web3@npm:^1.0.0-beta.34, web3@npm:^1.2.5":
   version: 1.6.0
   resolution: "web3@npm:1.6.0"
   dependencies:

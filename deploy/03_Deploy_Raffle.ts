@@ -4,7 +4,7 @@ import { networkConfig } from "../helper-hardhat-config";
 import { Deployment } from "hardhat-deploy/dist/types";
 
 const deployRaffle: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
-  const { deployments, getNamedAccounts, getChainId } = hre;
+  const { deployments, getNamedAccounts, getChainId } = hre as any;
   const { deploy, log, get } = deployments;
   const { deployer, sponsor } = await getNamedAccounts();
   const chainId = await getChainId();
@@ -15,7 +15,6 @@ const deployRaffle: DeployFunction = async function (hre: HardhatRuntimeEnvironm
     mockERC20: Deployment,
     VRFCoordinatorMock: Deployment;
   let additionalMessage = "";
-
   if (chainId === "31337") {
     linkToken = await get("LinkToken");
     mockERC20 = await get("MockERC20");

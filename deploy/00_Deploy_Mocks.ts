@@ -13,7 +13,7 @@ const deployMocks: DeployFunction = async function (hre: HardhatRuntimeEnvironme
       args: [],
       log: true,
     });
-    const mockERC20Token = await deploy("MockERC20", {
+    await deploy("MockERC20", {
       from: deployer,
       args: [sponsor],
       log: true,
@@ -31,4 +31,4 @@ const deployMocks: DeployFunction = async function (hre: HardhatRuntimeEnvironme
   }
 };
 export default deployMocks;
-deployMocks.tags = ["all", "mocks", "main"];
+deployMocks.tags = ["all", "mocks", "raffle"];

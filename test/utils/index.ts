@@ -1,6 +1,11 @@
 import { Contract } from "ethers";
 import { ethers } from "hardhat";
-
+/**
+ * Connects blockchain accounts to contracts so that the accounts could sign transactions
+ * @param addresses
+ * @param contracts
+ * @returns
+ */
 export async function setupUsers<T extends { [contractName: string]: Contract }>(
   addresses: string[],
   contracts: T,

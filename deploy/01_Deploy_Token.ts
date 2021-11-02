@@ -6,12 +6,12 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const { deployments, getNamedAccounts } = hre; // we get the deployments and getNamedAccounts which are provided by hardhat-deploy.
   const { deploy } = deployments; // The deployments field itself contains the deploy function.
 
-  const { account1, account2 } = await getNamedAccounts(); // Fetch the accounts. These can be configured in hardhat.config.ts as explained above.
+  const { deployer, sponsor } = await getNamedAccounts(); // Fetch the accounts. These can be configured in hardhat.config.ts as explained above.
 
   await deploy("Token", {
     // This will create a deployment called 'Token'. By default it will look for an artifact with the same name. The 'contract' option allows you to use a different artifact.
-    from: account1, // Deployer will be performing the deployment transaction.
-    args: [account2], // tokenOwner is the address used as the first argument to the Token contract's constructor.
+    from: deployer, // Deployer will be performing the deployment transaction.
+    args: [sponsor], // tokenOwner is the address used as the first argument to the Token contract's constructor.
     log: true, // Display the address and gas used in the console (not when run in test though).
   });
 };

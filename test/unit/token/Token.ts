@@ -18,7 +18,7 @@ async function setup() {
   };
 
   // we get the account2
-  const { account2 } = await getNamedAccounts();
+  const { sponsor } = await getNamedAccounts();
 
   // Get the unnammedAccounts (which are basically all accounts not named in the config,
   // This is useful for tests as you can be sure they have noy been given tokens for example)
@@ -29,7 +29,7 @@ async function setup() {
   return {
     ...contracts,
     users,
-    account2: await setupUser(account2, contracts),
+    sponsor: await setupUser(sponsor, contracts),
   };
 }
 

@@ -21,7 +21,7 @@ const deployRandomNumberConsumer: DeployFunction = async function (hre: HardhatR
     vrfCoordinatorAddress = networkConfig[chainId].vrfCoordinator;
   }
   const keyHash = networkConfig[chainId].keyHash;
-  const fee = networkConfig[chainId].fee;
+  const fee = networkConfig[chainId].chainlinkFee;
 
   const randomNumberConsumer = await deploy("RandomNumberConsumer", {
     from: deployer,

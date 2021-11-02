@@ -3,10 +3,12 @@ import { ethers, getChainId } from "hardhat";
 export interface networkConfigItem {
   name: string;
   fundAmount: string;
-  fee?: string;
+  chainlinkFee: string;
+  entranceFee: string;
   keyHash?: string;
   interval?: string;
   linkToken?: string;
+  mockERC20?: string;
   vrfCoordinator?: string;
   keepersUpdateInterval?: string;
   oracle?: string;
@@ -28,7 +30,8 @@ export interface autoFundCheckParams {
 export const networkConfig: networkConfigInfo = {
   default: {
     name: "hardhat",
-    fee: "100000000000000000",
+    chainlinkFee: "100000000000000000",
+    entranceFee: "100000000000000000",
     keyHash: "0x6c3699283bda56ad74f6b855546325b68d482e983852a7a82979cc4807b641f4",
     jobId: "29fa9aa13bf1468788b7cc4a500a45b8",
     fundAmount: "1000000000000000000",
@@ -36,7 +39,8 @@ export const networkConfig: networkConfigInfo = {
   },
   31337: {
     name: "localhost",
-    fee: "100000000000000000",
+    chainlinkFee: "100000000000000000",
+    entranceFee: "100000000000000000",
     keyHash: "0x6c3699283bda56ad74f6b855546325b68d482e983852a7a82979cc4807b641f4",
     jobId: "29fa9aa13bf1468788b7cc4a500a45b8",
     fundAmount: "1000000000000000000",
@@ -50,7 +54,8 @@ export const networkConfig: networkConfigInfo = {
     vrfCoordinator: "0xdD3782915140c8f3b190B5D67eAc6dc5760C46E9",
     oracle: "0xc57b33452b4f7bb189bb5afae9cc4aba1f7a4fd8",
     jobId: "d5270d1c311941d0b08bead21fea7747",
-    fee: "100000000000000000",
+    chainlinkFee: "100000000000000000",
+    entranceFee: "100000000000000000",
     fundAmount: "1000000000000000000",
     keepersUpdateInterval: "30",
   },
@@ -62,21 +67,22 @@ export const networkConfig: networkConfigInfo = {
     vrfCoordinator: "0xb3dCcb4Cf7a26f6cf6B120Cf5A73875B7BBc655B",
     oracle: "0xc57b33452b4f7bb189bb5afae9cc4aba1f7a4fd8",
     jobId: "6b88e0402e5d415eb946e528b8e0c7ba",
-    fee: "100000000000000000",
+    chainlinkFee: "100000000000000000",
+    entranceFee: "100000000000000000",
     fundAmount: "1000000000000000000",
     keepersUpdateInterval: "30",
   },
-  1: {
-    name: "mainnet",
-    linkToken: "0x514910771af9ca656af840dff83e8264ecf986ca",
-    fundAmount: "0",
-    keepersUpdateInterval: "30",
-  },
-  5: {
-    name: "goerli",
-    linkToken: "0x326c977e6efc84e512bb9c30f76e30c160ed06fb",
-    fundAmount: "0",
-  },
+  // 1: {
+  //   name: "mainnet",
+  //   linkToken: "0x514910771af9ca656af840dff83e8264ecf986ca",
+  //   fundAmount: "0",
+  //   keepersUpdateInterval: "30",
+  // },
+  // 5: {
+  //   name: "goerli",
+  //   linkToken: "0x326c977e6efc84e512bb9c30f76e30c160ed06fb",
+  //   fundAmount: "0",
+  // },
   80001: {
     name: "mumbai",
     linkToken: "0x326C977E6efc84E512bB9C30f76E30c160eD06FB",
@@ -85,7 +91,8 @@ export const networkConfig: networkConfigInfo = {
     vrfCoordinator: "0x8C7382F9D8f56b33781fE506E897a4F1e2d17255",
     oracle: "0x58bbdbfb6fca3129b91f0dbe372098123b38b5e9",
     jobId: "da20aae0e4c843f6949e5cb3f7cfe8c4",
-    fee: "100000000000000",
+    chainlinkFee: "100000000000000",
+    entranceFee: "100000000000000000",
     fundAmount: "100000000000000",
   },
   137: {
@@ -96,7 +103,8 @@ export const networkConfig: networkConfigInfo = {
     vrfCoordinator: "0x3d2341ADb2D31f1c5530cDC622016af293177AE0",
     oracle: "0x0a31078cd57d23bf9e8e8f1ba78356ca2090569e",
     jobId: "12b86114fa9e46bab3ca436f88e1a912",
-    fee: "100000000000000",
+    chainlinkFee: "100000000000000",
+    entranceFee: "100000000000000000",
     fundAmount: "100000000000000",
   },
 };
@@ -137,7 +145,7 @@ export const autoFundCheck = async ({
   } else {
     //user doesn't have enough LINK, print a warning
     console.log(
-      "Account doesn't have enough LINK to fund contracts, or you're deploying to a network where auto funding isnt' done by default",
+      "Account doesn't have enough LINK to fund contracts, or you're deploying to a network where auto funding isn't done by default",
     );
     console.log(
       "Please obtain LINK via the faucet at https://" +

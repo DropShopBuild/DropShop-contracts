@@ -2,11 +2,10 @@ import "@nomiclabs/hardhat-waffle";
 import "@nomiclabs/hardhat-ethers";
 import "@typechain/hardhat";
 import "@appliedblockchain/chainlink-plugins-fund-link";
+import "@nomiclabs/hardhat-web3";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
 import "hardhat-deploy";
-import "hardhat-deploy-ethers";
-
 import "./tasks/accounts";
 import "./tasks/balance";
 import "./tasks/block-number";
@@ -92,6 +91,9 @@ const config: HardhatUserConfig = {
       {
         version: "0.7.0",
       },
+      {
+        version: "0.8.9",
+      },
     ],
     settings: {
       metadata: {
@@ -112,16 +114,8 @@ const config: HardhatUserConfig = {
     target: "ethers-v5",
   },
   namedAccounts: {
-    deployer: {
-      default: 1, // here this will by default take the first account as deployer
-      1: 1, // similarly on mainnet it will take the first account as deployer. Note though that depending on how hardhat network are configured, the account 0 on one network can be different than on another
-    },
-    feeCollector: {
-      default: 1,
-    },
-    account0: 0,
-    account1: 1,
-    account2: 2,
+    deployer: 0,
+    sponsor: 1,
   },
   mocha: {
     timeout: 100000,

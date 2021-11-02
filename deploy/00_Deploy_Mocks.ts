@@ -4,13 +4,18 @@ import { DeployFunction } from "hardhat-deploy/types";
 const deployMocks: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const { deployments, getNamedAccounts, getChainId } = hre;
   const { deploy, log } = deployments;
-  const { deployer } = await getNamedAccounts();
+  const { deployer, sponsor } = await getNamedAccounts();
   const chainId = await getChainId();
   if (chainId === "31337") {
     log("Local network detected! Deploying mocks...");
     const linkToken = await deploy("LinkToken", {
       from: deployer,
       args: [],
+      log: true,
+    });
+    await deploy("MockERC20", {
+      from: deployer,
+      args: [sponsor],
       log: true,
     });
     await deploy("VRFCoordinatorMock", {
@@ -26,4 +31,4 @@ const deployMocks: DeployFunction = async function (hre: HardhatRuntimeEnvironme
   }
 };
 export default deployMocks;
-deployMocks.tags = ["all", "mocks", "main"];
+deployMocks.tags = ["all", "mocks", "raffle"];

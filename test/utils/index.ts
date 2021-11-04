@@ -5,6 +5,7 @@ import { ethers } from "hardhat";
  * @param addresses
  * @param contracts
  * @returns
+ * { address: string } & { [contractName: string]: Contract }
  */
 export async function setupUsers<T extends { [contractName: string]: Contract }>(
   addresses: string[],

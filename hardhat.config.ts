@@ -116,6 +116,7 @@ const config: HardhatUserConfig = {
   namedAccounts: {
     deployer: 0,
     sponsor: 1,
+    user: 2,
   },
   mocha: {
     timeout: 100000,

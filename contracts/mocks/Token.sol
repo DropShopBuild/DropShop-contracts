@@ -3,7 +3,7 @@
 // Solidity files have to start with this pragma.
 // It will be used by the Solidity compiler to validate its version.
 /* solhint-disable */
-pragma solidity ^0.7.0;
+pragma solidity ^0.8.4;
 
 import "hardhat/console.sol";
 

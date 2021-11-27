@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.9;
-pragma abicoder v2;
+
+pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -107,37 +107,6 @@ contract Raffle is AccessControl {
     // Private functions
     // ...
 }
-
-// contract OpenSeaNFTs {
-//     mapping (address => id) nfts = {ryansAddress => marshawnLynchId};
-
-// }
-
-// contract LINKTOKEN {
-//     mapping (address => amount) tokens = {colinsAddress => 1 token}
-// }
-
-// //Setup for NFT contract (DO THIS FIRST)
-// createNFTRepresentingProduct(uint256 quantity, uint256[] skuNumbers)
-
-// contract NFT {
-//     uint256[] tokenIds = [a,b,c,d,e];
-//     mapping(address winners => uint256 productId) = {}
-//     {address winner => productA}
-//     {address sponsor => productA} // only when winner of product A redeems their NFT for the product and the sponsor ships.
-// }
-
-// constract USDT {
-//     mapping(address => amount) = {sonsorAddress => 100 USDT}
-
-//                                 // when sponsor stakes 100:
-//                                 {raffleContractAddress => 100 USDT}
-//                                 {sonsorAddress => 0 USDT}
-
-//                                 // when sponsor withdraws stake:
-//                                 {raffleContractAddress => 0 USDT}
-//                                 {sonsorAddress => 100 USDT}
-// }
 
 // //Setup
 // createRaffleContract(address sponsor, uint256 durationInSeconds, address productNFTs, uint256 tokenAmount, uint256 minProductPrice)

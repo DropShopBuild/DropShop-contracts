@@ -16,5 +16,6 @@ interface Contracts {
 export interface SetupInterface extends Contracts {
   chainId: string;
   user: { address: string } & Contracts;
+  users: Array<{ address: string } & Contracts>;
   sponsor: { address: string } & Contracts;
 }

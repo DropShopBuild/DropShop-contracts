@@ -46,6 +46,7 @@
     "prettier-plugin-solidity": "^1.0.0-beta.18",
     "shelljs": "^0.8.4",
     "shx": "^0.3.3",
+    "solc-0.8": "npm:solc@^0.8.0",
     "solhint": "^3.3.6",
     "solhint-plugin-prettier": "^0.0.5",
     "solidity-coverage": "^0.7.17",
@@ -68,7 +69,7 @@
     "access": "public"
   },
   "scripts": {
-    "clean": "shx rm -rf ./artifacts ./cache ./coverage ./types ./coverage.json",
+    "clean": "shx rm -rf ./artifacts ./cache ./coverage ./types ./deployments ./coverage.json ",
     "commit": "git-cz",
     "compile": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat compile",
     "coverage": "yarn typechain && hardhat coverage --solcoverjs ./.solcover.js --temp artifacts --testfiles \"./test/**/*.ts\"",
@@ -94,6 +95,7 @@
     "@nomiclabs/hardhat-web3": "^2.0.0",
     "@openzeppelin/contracts": "^4.3.2",
     "@openzeppelin/test-helpers": "^0.5.15",
+    "@remix-project/remixd": "^0.5.2",
     "chai-bignumber": "^3.0.0",
     "hardhat-deploy": "^0.9.4"
   }

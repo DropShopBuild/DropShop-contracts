@@ -32,7 +32,6 @@ const deployRaffle: DeployFunction = async function (hre: HardhatRuntimeEnvironm
   const chainlinkFee: string = networkConfig[chainId].chainlinkFee;
   const entranceFee: string = networkConfig[chainId].entranceFee;
   const interval: string = networkConfig[chainId].keepersUpdateInterval!;
-
   const raffle = await deploy("Raffle", {
     from: deployer,
     args: [
@@ -48,7 +47,6 @@ const deployRaffle: DeployFunction = async function (hre: HardhatRuntimeEnvironm
     log: true,
   });
   const networkWorkName: string = networkConfig[chainId].name;
-
   log("Run the following command to fund contract with LINK:");
   log("npx hardhat fund-link --contract " + raffle.address + " --network " + networkWorkName + additionalMessage);
 };

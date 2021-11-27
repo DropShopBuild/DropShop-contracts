@@ -60,7 +60,7 @@ export function shouldBehaveLikeRaffleStart(): void {
   });
 }
 
-export function shouldBehaveLikeRaffleEnter(): void {
+export function shouldBehaveLikeRaffleEnter(skipTitle: string): void {
   it("Should let a user enter a raffle if they deposit enough.", async function () {
     const { user, RaffleContract } = this.setup as SetupInterface;
     await user.MockERC20Contract.approve(RaffleContract.address, this.entranceFee);
@@ -82,5 +82,53 @@ export function shouldBehaveLikeRaffleEnter(): void {
     await user.MockERC20Contract.approve(RaffleContract.address, this.entranceFee);
     await user.RaffleContract.enterRaffle(user.address, this.entranceFee);
     expect(await RaffleContract.s_deposits(user.address)).to.equal(this.entranceFee);
+  });
+
+  it("Should emit an DepositUpdate event when someone deposits a correct amount,", async function () {
+    const { user, RaffleContract, MockERC20Contract } = this.setup as SetupInterface;
+    await user.MockERC20Contract.approve(RaffleContract.address, this.entranceFee);
+    await expect(user.RaffleContract.enterRaffle(user.address, this.entranceFee))
+      .to.emit(RaffleContract, "DepositUpdate")
+      .withArgs(user.address, this.entranceFee);
+  });
+
+  it(skipTitle + "Should emit an DepositUpdate event twice when someone deposits an amount twice.", async function () {
+    const { sponsor, user, RaffleContract, MockERC20Contract } = this.setup as SetupInterface;
+    await sponsor.RaffleContract.startRaffle();
+    let depositAmount = (this.entranceFee * 2).toString();
+    await sponsor.MockERC20Contract.transfer(user.address, depositAmount);
+    await user.MockERC20Contract.approve(RaffleContract.address, depositAmount);
+    await user.RaffleContract.enterRaffle(user.address, this.entranceFee);
+    await expect(user.RaffleContract.enterRaffle(user.address, this.entranceFee))
+      .to.emit(RaffleContract, "DepositUpdate")
+      .withArgs(user.address, depositAmount);
+  });
+
+  it(skipTitle + "Should revert if user tries to enter without the raffle starting.", async function () {
+    const { sponsor, user, RaffleContract, MockERC20Contract } = this.setup as SetupInterface;
+    await sponsor.MockERC20Contract.transfer(user.address, this.entranceFee);
+    await user.MockERC20Contract.approve(RaffleContract.address, this.entranceFee);
+    await expect(user.RaffleContract.enterRaffle(user.address, this.entranceFee)).to.be.revertedWith(
+      "Raffle must be open.",
+    );
+  });
+
+  it(skipTitle + "Should revert if user tries to enter without approving Raffle contract first", async function () {
+    const { sponsor, user, RaffleContract, MockERC20Contract } = this.setup as SetupInterface;
+    await sponsor.RaffleContract.startRaffle();
+    await sponsor.MockERC20Contract.transfer(user.address, this.entranceFee);
+    await expect(user.RaffleContract.enterRaffle(user.address, this.entranceFee)).to.be.revertedWith(
+      "Token allowance too low.",
+    );
+  });
+
+  it(skipTitle + "Should revert if user tries to enter without enough tokens", async function () {
+    const { sponsor, user, RaffleContract, MockERC20Contract } = this.setup as SetupInterface;
+    await sponsor.RaffleContract.startRaffle();
+    await sponsor.MockERC20Contract.transfer(user.address, this.entranceFee);
+    await user.MockERC20Contract.approve(RaffleContract.address, this.entranceFee);
+    await expect(user.RaffleContract.enterRaffle(user.address, (this.entranceFee - 100).toString())).to.be.revertedWith(
+      "Not enough tokens.",
+    );
   });
 }

@@ -1,3 +1,5 @@
 {
-  "cSpell.words": ["bignumber", "chainlink", "linkaddress"]
+  "cSpell.words": ["bignumber", "chainlink", "linkaddress"],
+  "solidity-va.uml.actors.enable": true,
+  "solidity-va.deco.arguments": false
 }

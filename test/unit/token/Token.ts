@@ -10,11 +10,11 @@ import { shouldBehaveLikeTokenDeploy, shouldBehaveLikeTokenTransaction } from ".
 // we create a setup function that can be called by every test and setup variable for easy to read tests
 async function setup() {
   // it first ensures the deployment is executed and reset (use of evm_snapshot for faster tests)
-  await deployments.fixture(["Token"]);
+  await deployments.fixture(["MockToken"]);
 
   // we get an instantiated contract in the form of a ethers.js Contract instance:
   const contracts = {
-    Token: await ethers.getContract("Token"),
+    Token: await ethers.getContract("MockToken"),
   };
 
   // we get the account2

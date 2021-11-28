@@ -1,0 +1,1 @@
+## `IDropShopERC1155`
